@@ -69,7 +69,7 @@ function List() {
   ];
 
   return (
-    <div>
+    <div id="bottom">
       <DataView
         value={schools}
         itemTemplate={itemTemplate}
