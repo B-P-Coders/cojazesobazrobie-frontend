@@ -1,0 +1,10 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.lang {
+  width: 50px;
+  margin: 10px;
+  cursor: pointer;
+}
