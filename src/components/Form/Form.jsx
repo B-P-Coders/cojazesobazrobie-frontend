@@ -4,14 +4,15 @@ import { Dropdown } from "primereact/dropdown";
 import { InputSwitch } from "primereact/inputswitch";
 import '../../i18n';
 import axios from 'axios';
+import './Form.module.css';
 
 function Form() {
 
-    // pomysły na fieldy: stopień studiów ( 1 | 2 ), dla nauczyciela,
+    // pomysły na fieldy: stopień studiów ( 1 | 2 ), dla nauczyciela, język w którym jest prowadzone, czy są dualne 
 
     const [profile, setProfile] = useState(null);
     const [city, setCity] = useState(null);
-    const [checked, setChecked] = useState(true);
+    const [canTeacher, setCanTeacher] = useState(false);
 
     const { t, i18n } = useTranslation();
     const switchToPolish = () => i18n.changeLanguage('pl');
@@ -46,9 +47,12 @@ function Form() {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <Dropdown value={profile} onChange={(e) => setProfile(e.value)} options={profiles} optionLabel="name" placeholder="Wybierz profil" />
+                <div className="card flex justify-content-center">
+                    <Dropdown value={profile} onChange={(e) => setProfile(e.value)} options={profiles} optionLabel="name" placeholder="Wybierz profil" className="w-full md:w-14rem" />
+                </div>
                 <Dropdown value={city} onChange={(e) => setCity(e.value)} options={cities} optionLabel="name" placeholder="Wybierz profil" />
-                <InputSwitch checked={checked} onChange={(e) => setChecked(e.value)} />
+                <Dropdown value={city} onChange={(e) => setCity(e.value)} options={cities} optionLabel="name" placeholder="Wybierz profil" />
+                <InputSwitch checked={canTeacher} onChange={(e) => setCanTeacher(e.value)} />
             </form>
         </>
     )

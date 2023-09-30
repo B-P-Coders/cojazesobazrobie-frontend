@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import Form from './components/Form/Form.jsx';
 import axios from 'axios';
-
+import pol from './assets/polish.png';
+import eng from './assets/english.png';
 function App() {
   const [count, setCount] = useState(0)
   const { t, i18n } = useTranslation();
@@ -18,12 +19,11 @@ function App() {
     });*/
   return (
     <>
+      <img src={pol} onClick={switchToPolish} />
+      <img src={eng} onClick={switchToEnglish} />
       <div>
-        <button onClick={switchToPolish}>Switch to Polish</button>
-        <button onClick={switchToEnglish}>Switch to English</button>
         <h1>Co ja ze sobą zrobię</h1>
         <h2>
-          {import.meta.env.VITE_BACKEND}
           {t('Do jakiej uczelni pójdziesz?')}
         </h2>
       </div>
