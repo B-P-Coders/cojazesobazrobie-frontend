@@ -13,6 +13,7 @@ function Form() {
     const [profile, setProfile] = useState(null);
     const [city, setCity] = useState(null);
     const [canTeacher, setCanTeacher] = useState(false);
+    const [degree, setDegree] = useState(null);
 
     const { t, i18n } = useTranslation();
     const switchToPolish = () => i18n.changeLanguage('pl');
@@ -44,14 +45,19 @@ function Form() {
         { name: 'Warszawa' }
     ];
 
+    const degrees = [
+        { name: 1 },
+        { name: 2 }
+    ];
+
     return (
         <>
             <form onSubmit={handleSubmit}>
                 <div className="card flex justify-content-center">
-                    <Dropdown value={profile} onChange={(e) => setProfile(e.value)} options={profiles} optionLabel="name" placeholder="Wybierz profil" className="w-full md:w-14rem" />
+                    <Dropdown value={profile} onChange={(e) => setProfile(e.value)} options={profiles} className="w-full md:w-14rem" optionLabel="name" placeholder="Wybierz profil" />
                 </div>
-                <Dropdown value={city} onChange={(e) => setCity(e.value)} options={cities} optionLabel="name" placeholder="Wybierz profil" />
-                <Dropdown value={city} onChange={(e) => setCity(e.value)} options={cities} optionLabel="name" placeholder="Wybierz profil" />
+                <Dropdown value={city} onChange={(e) => setCity(e.value)} options={cities} optionLabel="name" placeholder="Wybierz miasto" />
+                <Dropdown value={degree} onChange={(e) => setDegree(e.value)} options={degrees} optionLabel="name" placeholder="Którego stopnia" />
                 <InputSwitch checked={canTeacher} onChange={(e) => setCanTeacher(e.value)} />
             </form>
         </>
