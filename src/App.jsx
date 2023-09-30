@@ -23,11 +23,9 @@ function App() {
     <>
       <img className="lang" src={pol} onClick={switchToPolish} />
       <img className="lang" src={eng} onClick={switchToEnglish} />
-      <div>
-        <h1>Co ja ze sobą zrobię</h1>
-        <h2>
-          {t('title')}
-        </h2>
+      <div className="text">
+        <h1 className="mainTxt">Co ja ze sobą zrobię?</h1>
+        <h2>{t("Do jakiej uczelni pójdziesz?")}</h2>
       </div>
       <Form />
     </>
