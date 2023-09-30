@@ -21,19 +21,28 @@ function App() {
     .catch(error => {
       console.error('Error fetching data:', error);
     });*/
+  const handleBeforeUnload = (event) => {
+    localStorage.setItem("list", "");
+  };
+  window.addEventListener("beforeunload", handleBeforeUnload);
+
   return (
     <>
-      <div>
-        <img className="logo" src={logo} />
-        <img className="lang" src={pol} onClick={switchToPolish} />
-        <img className="lang" src={eng} onClick={switchToEnglish} />
+      <div className="black">
+        <div>
+          <img className="logo" src={logo} />
+          <img className="lang" src={pol} onClick={switchToPolish} />
+          <img className="lang" src={eng} onClick={switchToEnglish} />
+        </div>
+        <div className="text">
+          <h1 className="mainTxt">{t("title")}</h1>
+          <h2>{t("question")}</h2>
+        </div>
+
+        <Form />
       </div>
-      <div className="text">
-        <h1 className="mainTxt">{t("title")}</h1>
-        <h2>{t("question")}</h2>
-      </div>
-      <Form />
-      <List />
+
+      {localStorage.getItem("list") ? <List /> : ""}
     </>
   );
 }

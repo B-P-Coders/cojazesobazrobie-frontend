@@ -71,11 +71,10 @@ function List() {
   return (
     <div>
       <DataView
-        className="box"
         value={schools}
         itemTemplate={itemTemplate}
         paginator
-        rows={3}
+        rows={7}
       />
       {/* <DataView value={schools} itemTemplate={itemTemplate} /> */}
     </div>
