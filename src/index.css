@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Roboto:wght@300;500;900&family=Share:wght@400;700&display=swap');
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  font-family: 'Share', sans-serif;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
