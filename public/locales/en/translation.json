@@ -1,7 +1,7 @@
 {
     "title": "What should I do ?",
     "question": "Which university are you going to choose?",
-    "f1": "Choose a profile",
+    "f1": "Choose a discipline",
     "f2": "Choose a city",
     "f3": "Choose a degree",
     "kr": "Cracow",
@@ -10,5 +10,13 @@
     "law": "Law",
     "aut": "Automatics",
     "ba": "Bachelor",
-    "ma": "Master"
+    "ma": "Master",
+    "q2": "Should you get teacher's qualifications?",
+    "q3": "Should the studies be dual?",
+    "pol": "Polish",
+    "eng": "English",
+    "selectc": "Select language",
+    "search": "Search",
+    "prof": "Choose a profile"
+    
 }

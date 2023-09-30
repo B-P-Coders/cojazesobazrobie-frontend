@@ -1,7 +1,7 @@
 {
     "title": "Co ja ze sobą zrobię?",
     "question": "Jaką uczelnię wybierzesz?",
-    "f1": "Wybierz profil",
+    "f1": "Wybierz dyscyplinę",
     "f2": "Wybierz miasto",
     "f3": "Wybierz stopień",
     "kr": "Kraków",
@@ -10,5 +10,13 @@
     "law": "Prawo",
     "aut": "Automatyka",
     "ba": "Licencjackie",
-    "ma": "Magisterskie"
+    "ma": "Magisterskie",
+    "q2": "Czy studia mają zapewnić kwalifikacje nauczycielskie?",
+    "q3": "Czy studia mają być dualne?",
+    "pol": "Polski",
+    "eng": "Angielski",
+    "selectc": "Wybierz język",
+    "search": "Wyszukaj",
+    "prof": "Wybierz profil"
+
 }
