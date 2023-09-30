@@ -7,9 +7,11 @@ import eng from "./assets/english.png";
 import "./App.css";
 import List from "./components/List/List.jsx";
 import logo from "./assets/logo.png";
+import { useEffect } from "react";
+import React from "react";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [li, setLi] = useState("");
   const { t, i18n } = useTranslation();
   const switchToPolish = () => i18n.changeLanguage("pl");
   const switchToEnglish = () => i18n.changeLanguage("en");
@@ -21,10 +23,8 @@ function App() {
     .catch(error => {
       console.error('Error fetching data:', error);
     });*/
-  const handleBeforeUnload = (event) => {
-    localStorage.setItem("list", "");
-  };
-  window.addEventListener("beforeunload", handleBeforeUnload);
+
+  const [show, setShow] = React.useState(false);
 
   return (
     <>
@@ -39,10 +39,10 @@ function App() {
           <h2>{t("question")}</h2>
         </div>
 
-        <Form />
+        <Form show={show} setShow={setShow} />
       </div>
 
-      {localStorage.getItem("list") ? <List /> : ""}
+      {show ? <List /> : ""}
     </>
   );
 }
