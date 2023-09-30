@@ -71,7 +71,7 @@ function Form() {
                                 placeholder={t("f2")}
                                 editable
                             />
-                            <label htmlFor="dd-city">Select a City</label>
+                            <label htmlFor="dd-city">Select a city</label>
                         </span>
                     </div>
                     <div className="card flex justify-content-center">
@@ -88,10 +88,33 @@ function Form() {
                         </span>
                     </div>
                 </div>
-                <InputSwitch
-                    checked={canTeacher}
-                    onChange={(e) => setCanTeacher(e.value)}
-                />
+                <div className="flex justify-content-center align-items-center">
+                    <h3>Studia mają zapewnić kwalifikacje nauczycielskie?</h3>
+                    <InputSwitch
+                        checked={canTeacher}
+                        onChange={(e) => setCanTeacher(e.value)}
+                    />
+                </div>
+                <div className="card flex justify-content-center">
+                    <span className="p-float-label">
+                        <Dropdown
+                            value={city}
+                            onChange={(e) => setCity(e.value)}
+                            options={cities}
+                            optionLabel="name"
+                            placeholder={t("f2")}
+                            editable
+                        />
+                        <label htmlFor="dd-city">Select a language</label>
+                    </span>
+                </div>
+                <div className="flex justify-content-center align-items-center">
+                    <h3>Studia mają być dualne?</h3>
+                    <InputSwitch
+                        checked={canTeacher}
+                        onChange={(e) => setCanTeacher(e.value)}
+                    />
+                </div>
             </form >
         </>
     );
