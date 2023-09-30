@@ -1,5 +1,7 @@
 import React from "react";
 import { DeferredContent } from "primereact/deferredcontent";
+import { DataView, DataViewLayoutOptions } from 'primereact/dataview';
+
 import { itemTemplate } from "../itemTemplate/itemTemplate.jsx";
 
 function List() {
@@ -27,7 +29,7 @@ function List() {
   ];
 
   return (
-    <div>{/* <DataView value={schools} itemTemplate={itemTemplate} /> */}</div>
+    <div>{<DataView value={schools} itemTemplate={itemTemplate} />}</div>
   );
 }
 
