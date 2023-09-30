@@ -21,8 +21,6 @@ function Form({ show, setShow }) {
     const [filteredDisciplines, setFilteredDisciplines] = useState(null);
 
     const { t, i18n } = useTranslation();
-    const switchToPolish = () => i18n.changeLanguage("pl");
-    const switchToEnglish = () => i18n.changeLanguage("en");
     const handleSubmit = async (event) => {
         event.preventDefault();
         setShow(true);
@@ -31,16 +29,15 @@ function Form({ show, setShow }) {
             profile: profile,
             city: city,
         };
+        const host = import.meta.env.VITE_BACKEND;
 
-        try {
-            const response = await axios.post(
-                "https://api.example.com/users",
-                userData
-            );
-            console.log("Data sent successfully:", response.data);
-        } catch (error) {
-            console.error("Error sending data:", error);
-        }
+        axios.get(host + "")
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
     };
 
     const disciplines = [t("IT"), t("law"), t("aut")];
