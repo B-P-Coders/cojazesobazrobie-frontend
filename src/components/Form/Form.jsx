@@ -53,11 +53,17 @@ function Form() {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <div className="card flex justify-content-center">
-                    <Dropdown value={profile} onChange={(e) => setProfile(e.value)} options={profiles} className="w-full md:w-14rem" optionLabel="name" placeholder="Wybierz profil" />
+                <div>
+                    <div className="card flex justify-content-center">
+                        <Dropdown value={profile} onChange={(e) => setProfile(e.value)} options={profiles} className="w-full md:w-14rem" optionLabel="name" placeholder="Wybierz profil" editable />
+                    </div>
+                    <div className="card flex justify-content-center">
+                        <Dropdown value={city} onChange={(e) => setCity(e.value)} options={cities} optionLabel="name" placeholder="Wybierz miasto" editable />
+                    </div>
+                    <div className="card flex justify-content-center">
+                        <Dropdown value={degree} onChange={(e) => setDegree(e.value)} options={degrees} optionLabel="name" placeholder="Którego stopnia" editable />
+                    </div>
                 </div>
-                <Dropdown value={city} onChange={(e) => setCity(e.value)} options={cities} optionLabel="name" placeholder="Wybierz miasto" />
-                <Dropdown value={degree} onChange={(e) => setDegree(e.value)} options={degrees} optionLabel="name" placeholder="Którego stopnia" />
                 <InputSwitch checked={canTeacher} onChange={(e) => setCanTeacher(e.value)} />
             </form>
         </>

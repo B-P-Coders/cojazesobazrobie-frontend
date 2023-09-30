@@ -1,3 +1,14 @@
 {
-    "title": "What am I going to do with myself?"
+    "title": "What am I going to do with myself?",
+    "question": "Which university are you going to choose?",
+    "f1": "Choose a profile",
+    "f2": "Choose a city",
+    "f3": "Choose a degree",
+    "kr": "Cracow",
+    "wa": "Warsaw",
+    "IT": "Computer Science",
+    "law": "Law",
+    "aut": "Automatics",
+    "ba": "Bachelor",
+    "ma": "Master"
 }

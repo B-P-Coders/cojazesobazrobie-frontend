@@ -1,4 +1,14 @@
 {
     "title": "Co ja ze sobą zrobię",
-    "question": "Do jakiej uczelni pójdziesz?"
+    "question": "Do jakiej uczelni pójdziesz?",
+    "f1": "Wybierz profil",
+    "f2": "Wybierz miasto",
+    "f3": "Wybierz stopień",
+    "kr": "Kraków",
+    "wa": "Warszawa",
+    "IT": "Informatyka",
+    "law": "Prawo",
+    "aut": "Automatyka",
+    "ba": "Licencjackie",
+    "ma": "Magisterskie"
 }
