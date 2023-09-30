@@ -6,6 +6,7 @@ import pol from "./assets/polish.png";
 import eng from "./assets/english.png";
 import "./App.css";
 import List from "./components/List/List.jsx";
+import logo from "./assets/logo.png";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -23,6 +24,7 @@ function App() {
   return (
     <>
       <div>
+        <img className="logo" src={logo} />
         <img className="lang" src={pol} onClick={switchToPolish} />
         <img className="lang" src={eng} onClick={switchToEnglish} />
       </div>
@@ -31,7 +33,7 @@ function App() {
         <h2>{t("question")}</h2>
       </div>
       <Form />
-      <List/>
+      <List />
     </>
   );
 }
