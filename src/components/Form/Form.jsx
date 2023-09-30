@@ -45,44 +45,53 @@ function Form() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="flex flex-row gap-3 m-3 justify-content-center align-items-center">
           <div className="card flex justify-content-center">
-            <Dropdown
-              value={profile}
-              onChange={(e) => setProfile(e.value)}
-              options={profiles}
-              className="w-full md:w-14rem"
-              optionLabel="name"
-              placeholder={t("f1")}
-              editable
-            />
+            <span className="p-float-label">
+              <Dropdown
+                value={profile}
+                onChange={(e) => setProfile(e.value)}
+                options={profiles}
+                className="w-full md:w-14rem"
+                optionLabel="name"
+                placeholder={t("f1")}
+                editable
+              />
+              <label htmlFor="dd-city" className="text-lg">Select a profile</label>
+            </span>
           </div>
           <div className="card flex justify-content-center">
-            <Dropdown
-              value={city}
-              onChange={(e) => setCity(e.value)}
-              options={cities}
-              optionLabel="name"
-              placeholder={t("f2")}
-              editable
-            />
+            <span className="p-float-label">
+              <Dropdown
+                value={city}
+                onChange={(e) => setCity(e.value)}
+                options={cities}
+                optionLabel="name"
+                placeholder={t("f2")}
+                editable
+              />
+              <label htmlFor="dd-city">Select a City</label>
+            </span>
           </div>
           <div className="card flex justify-content-center">
-            <Dropdown
-              value={degree}
-              onChange={(e) => setDegree(e.value)}
-              options={degrees}
-              optionLabel="name"
-              placeholder={t("f3")}
-              editable
-            />
+            <span className="p-float-label">
+              <Dropdown
+                value={degree}
+                onChange={(e) => setDegree(e.value)}
+                options={degrees}
+                optionLabel="name"
+                placeholder={t("f3")}
+                editable
+              />
+              <label htmlFor="dd-city">Select a degree</label>
+            </span>
           </div>
         </div>
         <InputSwitch
           checked={canTeacher}
           onChange={(e) => setCanTeacher(e.value)}
         />
-      </form>
+      </form >
     </>
   );
 }
