@@ -29,7 +29,7 @@ export function itemTemplate(school) {
               {school.study_names.name}
             </span>
             <Button className="p-button-rounded  ">
-              {t("lang")} {school.languages == null ? school.languages.language : ""}
+              {t("lang")} {school.languages != null ? school.languages.language : "none"}
             </Button>
           </div>
         </div>
