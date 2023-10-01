@@ -9,17 +9,18 @@ import { Button } from "primereact/button";
 import { AutoComplete } from "primereact/autocomplete";
 
 function Form({ show, setShow }) {
-    const [disciplineValue, setDisciplineValue] = useState("");
-    const [city, setCity] = useState(null);
-    const [canTeacher, setCanTeacher] = useState(false);
-    const [degree, setDegree] = useState(null);
-    const [language, setLanguage] = useState(null);
-    const [canDual, setCanDual] = useState(false);
-    const [profile, setProfile] = useState(null);
-
-    const [filteredDisciplines, setFilteredDisciplines] = useState(null);
-
     const { t, i18n } = useTranslation();
+
+    const [discipline, setDiscipline] = useState("");
+    const [city, setCity] = useState("");
+    const [canTeacher, setCanTeacher] = useState(false);
+    const [degree, setDegree] = useState("");
+    const [language, setLanguage] = useState("");
+    const [canDual, setCanDual] = useState(false);
+    const [profile, setProfile] = useState("");
+
+    const [filterData, setfilterData] = useState([]);
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         setShow(true);
@@ -50,10 +51,16 @@ function Form({ show, setShow }) {
 
     const profiles = ["praktyczny", "ogólnoakademicki"];
 
-    const searchDisc = (event) => {
-        disciplineValue
-            ? disciplines.map((item) => disciplineValue + "-" + item)
-            : disciplines
+    const search = (event, arr) => {
+        console.log(arr);
+        arr.map((item) => {
+            const newFilterData = arr.filter((item) =>
+                item.toLowerCase().includes(discipline.toLowerCase())
+            );
+            console.log(item);
+            setfilterData(newFilterData);
+            return arr;
+        });
     };
 
     return (
@@ -63,10 +70,10 @@ function Form({ show, setShow }) {
                     <div className="card flex justify-content-center">
                         <span className="p-float-label">
                             <AutoComplete
-                                value={disciplineValue}
-                                suggestions={disciplines}
-                                completeMethod={searchDisc}
-                                onChange={(e) => setDisciplineValue(e.value)}
+                                value={discipline}
+                                suggestions={filterData}
+                                completeMethod={(e) => search(e, disciplines)}
+                                onChange={(e) => setDiscipline(e.value)}
                                 dropdown
                                 placeholder={t("f1")}
                             />
@@ -77,34 +84,26 @@ function Form({ show, setShow }) {
                     </div>
                     <div className="card flex justify-content-center">
                         <span className="p-float-label">
-                            <Dropdown
-                                value={city}
-                                onChange={(e) => setCity(e.value)}
-                                options={cities}
-                                optionLabel="name"
-                                placeholder={t("f2")}
-                                editable
-                            />
                             <AutoComplete
-                                value={disciplineValue}
-                                suggestions={disciplines}
-                                completeMethod={searchDisc}
-                                onChange={(e) => setDisciplineValue(e.value)}
+                                value={city}
+                                suggestions={filterData}
+                                completeMethod={(e) => search(e, cities)}
+                                onChange={(e) => setCity(e.value)}
                                 dropdown
-                                placeholder={t("f1")}
+                                placeholder={t("f2")}
                             />
                             <label htmlFor="dd-city">{t("f2")}</label>
                         </span>
                     </div>
                     <div className="card flex justify-content-center">
                         <span className="p-float-label">
-                            <Dropdown
+                            <AutoComplete
                                 value={degree}
+                                suggestions={filterData}
+                                completeMethod={(e) => search(e, degrees)}
                                 onChange={(e) => setDegree(e.value)}
-                                options={degrees}
-                                optionLabel="name"
+                                dropdown
                                 placeholder={t("f3")}
-                                editable
                             />
                             <label htmlFor="dd-city">{t("f3")}</label>
                         </span>
@@ -127,13 +126,13 @@ function Form({ show, setShow }) {
                 <div className="flex flex-row gap-3 m-3 justify-content-center align-items-center">
                     <div className="card flex justify-content-center">
                         <span className="p-float-label">
-                            <Dropdown
+                            <AutoComplete
                                 value={language}
+                                suggestions={filterData}
+                                completeMethod={(e) => search(e, languages)}
                                 onChange={(e) => setLanguage(e.value)}
-                                options={languages}
-                                optionLabel="name"
+                                dropdown
                                 placeholder={t("selectc")}
-                                editable
                             />
                             <label htmlFor="dd-city">{t("selectc")}</label>
                         </span>
@@ -141,14 +140,13 @@ function Form({ show, setShow }) {
 
                     <div className="card flex justify-content-center">
                         <span className="p-float-label">
-                            <Dropdown
+                            <AutoComplete
                                 value={profile}
+                                suggestions={filterData}
+                                completeMethod={(e) => search(e, profiles)}
                                 onChange={(e) => setProfile(e.value)}
-                                options={profiles}
-                                className="w-full md:w-14rem"
-                                optionLabel="name"
+                                dropdown
                                 placeholder={t("prof")}
-                                editable
                             />
                             <label htmlFor="dd-city" className="text-lg">
                                 {t("prof")}
