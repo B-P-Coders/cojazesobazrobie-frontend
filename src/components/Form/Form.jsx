@@ -12,7 +12,8 @@ function Form({ show, setShow, data, setData }) {
     const { t, i18n } = useTranslation();
 
     const [discipline, setDiscipline] = useState("");
-    const [run_form, setRun_form] = useState("");
+    const [school, setSchool] = useState("");
+    const [run_form, setRun_form] = useState(false);
     const [canTeacher, setCanTeacher] = useState(false);
     const [degree, setDegree] = useState("");
     const [language, setLanguage] = useState("");
@@ -34,17 +35,6 @@ function Form({ show, setShow, data, setData }) {
             .get(host + "/schools?name=Agrobiznes")
             .then((response) => {
                 setData(response.data);
-                if (discipline) {
-                    console.log(response.data);
-                    const newFilterData = data.filter((table) => {
-                        table.study_names.name
-                            .toLowerCase()
-                            .includes(discipline.toLowerCase());
-                        console.log(table);
-                    });
-
-                    setData(newFilterData);
-                }
             })
             .catch((error) => {
                 console.error("Error fetching data:", error);
@@ -52,6 +42,8 @@ function Form({ show, setShow, data, setData }) {
     };
 
     const disciplines = [t("IT"), t("law"), t("aut")];
+
+    const schools = ["UJ", "AGH"];
 
     const run_forms = [t("stacjonarne"), t("niestacjonarne")];
 
@@ -89,10 +81,10 @@ function Form({ show, setShow, data, setData }) {
                     <div className="card flex justify-content-center">
                         <span className="p-float-label">
                             <AutoComplete
-                                value={run_form}
+                                value={school}
                                 suggestions={filterData}
-                                completeMethod={(e) => search(e, run_forms)}
-                                onChange={(e) => setRun_form(e.value)}
+                                completeMethod={(e) => search(e, schools)}
+                                onChange={(e) => setSchool(e.value)}
                                 dropdown
                                 placeholder={t("f2")}
                             />
@@ -122,9 +114,16 @@ function Form({ show, setShow, data, setData }) {
                         />
                     </div>
                     <h3>{t("q3")}</h3>
+                    <div className="mr-4">
+                        <InputSwitch
+                            checked={canDual}
+                            onChange={(e) => setCanDual(e.value)}
+                        />
+                    </div>
+                    <h3>{t("q4")}</h3>
                     <InputSwitch
-                        checked={canDual}
-                        onChange={(e) => setCanDual(e.value)}
+                        checked={run_form}
+                        onChange={(e) => setRun_form(e.value)}
                     />
                 </div>
                 <div className="flex flex-row gap-3 m-3 justify-content-center align-items-center">
