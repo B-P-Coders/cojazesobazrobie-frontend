@@ -62,13 +62,11 @@ function Form({ show, setShow, data, setData }) {
   const profiles = ["praktyczny", "ogólnoakademicki"];
 
   const search = (event, arr) => {
-    arr.map((item) => {
-      const newFilterData = arr.filter((item) =>
-        item.toLowerCase().includes(discipline.toLowerCase())
-      );
-      setfilterData(newFilterData);
-      return arr;
-    });
+    const newFilterData = arr.filter((item) =>
+      item.toLowerCase().includes(discipline.toLowerCase())
+    );
+    setfilterData(newFilterData);
+    return arr;
   };
 
   return (
