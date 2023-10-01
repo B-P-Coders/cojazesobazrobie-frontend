@@ -20,7 +20,7 @@ export function itemTemplate(school) {
                   {t(school.level.replace("_", " "))}
                 </span>
               </span>
-              {school.run_form && <Tag value={t(school.run_form)}></Tag>}
+              {school.run_form ? <Tag value={t("niestacjonarne")}></Tag> : <Tag value={t("stacjonarne")}></Tag>}
             </div>
           </div>
           <div className="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2">
@@ -28,7 +28,7 @@ export function itemTemplate(school) {
               {school.study_names.name}
             </span>
             <Button className="p-button-rounded  ">
-              {t("lang")} {school.languages.language}
+              {t("lang")}
             </Button>
           </div>
         </div>
