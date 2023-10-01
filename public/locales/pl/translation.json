@@ -17,6 +17,11 @@
     "eng": "Angielski",
     "selectc": "Wybierz język",
     "search": "Wyszukaj",
-    "prof": "Wybierz profil"
+    "prof": "Wybierz profil",
+    "lang": "Język: ",
+    "stacjonarne": "stacjonarne",
+    "niestacjonarne": "niestacjonarne",
+    "pierwszego stopnia": "Licencjat",
+    "drugiego stopnia": "Magister"
 
 }

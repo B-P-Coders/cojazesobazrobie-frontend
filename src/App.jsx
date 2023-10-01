@@ -11,7 +11,7 @@ import { useEffect } from "react";
 import React from "react";
 
 function App() {
-  const [li, setLi] = useState("");
+  const [data, setData] = useState("");
   const { t, i18n } = useTranslation();
   const switchToPolish = () => i18n.changeLanguage("pl");
   const switchToEnglish = () => i18n.changeLanguage("en");
@@ -39,10 +39,10 @@ function App() {
           <h2>{t("question")}</h2>
         </div>
 
-        <Form show={show} setShow={setShow} />
+        <Form show={show} setShow={setShow} data={data} setData={setData} />
       </div>
 
-      {show ? <List /> : ""}
+      {show ? <List data={data} setData={setData} /> : ""}
     </>
   );
 }

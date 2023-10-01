@@ -17,6 +17,11 @@
     "eng": "English",
     "selectc": "Select language",
     "search": "Search",
-    "prof": "Choose a profile"
+    "prof": "Choose a profile",
+    "lang": "Language: ",
+    "stacjonarne": "stationary",
+    "niestacjonarne": "online",
+    "pierwszego stopnia": "Bachelor's",
+    "drugiego stopnia": "Master's"
     
 }
