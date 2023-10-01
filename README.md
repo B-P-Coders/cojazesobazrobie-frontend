@@ -1,5 +1,7 @@
 # cojazesobazrobie
 
+![obraz](https://github.com/B-P-Coders/cojazesobazrobie-frontend/assets/74304320/f0641784-fbf0-4286-b77c-e6b450da69d9)
+
 ## PL
 
 Jest to aplikacja webowa oparta na React'cie. Pozwala niezdecydowanym osobom na wyszukiwanie kierunków studiów na podstawie indywidualnych preferencji.
