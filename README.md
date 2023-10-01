@@ -1,5 +1,7 @@
 # cojazesobazrobie
 
+Jest to aplikacja webowa oparta na React'cie. Pozwala niezdecydowanym osobom na wyszukiwanie kierunków studiów na podstawie indywidualnych preferencji.
+
 ## Instalacja
 
 1. Upewnij się ze posiadasz Node.js i npm zainstalowane na swoim komputerze
