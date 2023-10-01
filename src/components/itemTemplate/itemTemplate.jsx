@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 
 export function itemTemplate(school) {
   const { t, i18n } = useTranslation();
+  console.log(school);
 
   return (
     <div className="col-12">
@@ -28,7 +29,7 @@ export function itemTemplate(school) {
               {school.study_names.name}
             </span>
             <Button className="p-button-rounded  ">
-              {t("lang")}
+              {t("lang")} {school.languages == null ? school.languages.language : ""}
             </Button>
           </div>
         </div>

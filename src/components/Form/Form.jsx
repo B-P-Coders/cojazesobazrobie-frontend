@@ -89,7 +89,6 @@ function Form({ show, setShow, data, setData }) {
         axios
             .get(host + "/schools/languages")
             .then((response) => {
-                console.log(response.data);
                 const newLanguages = response.data.filter((item) => item !== null);
                 setLanguages(newLanguages);
             })
