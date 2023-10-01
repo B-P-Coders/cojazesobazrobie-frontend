@@ -137,10 +137,8 @@ function Form({ show, setShow, data, setData }) {
                         <span className="p-float-label">
                             <AutoComplete
                                 value={school}
-                                suggestions={filterData}
                                 completeMethod={(e) => search(e, schools)}
                                 onChange={(e) => setSchool(e.value)}
-                                dropdown
                                 placeholder={t("f2")}
                             />
                             <label htmlFor="dd-city">{t("f2")}</label>
