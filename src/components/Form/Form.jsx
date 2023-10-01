@@ -12,7 +12,7 @@ function Form({ show, setShow, data, setData }) {
   const { t, i18n } = useTranslation();
 
   const [discipline, setDiscipline] = useState("");
-  const [city, setCity] = useState("");
+  const [run_form, setRun_form] = useState("");
   const [canTeacher, setCanTeacher] = useState(false);
   const [degree, setDegree] = useState("");
   const [language, setLanguage] = useState("");
@@ -24,7 +24,6 @@ function Form({ show, setShow, data, setData }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setShow(true);
-    console.log(show);
     const userData = {
       profile: profile,
       city: city,
@@ -32,9 +31,20 @@ function Form({ show, setShow, data, setData }) {
     const host = import.meta.env.VITE_BACKEND;
     //  /schools?offset=25&limit=25&name=Administracja
     axios
-      .get(host + "/schools")
+      .get(host + "/schools?name=Agrobiznes")
       .then((response) => {
         setData(response.data);
+        if (discipline) {
+          console.log(response.data);
+          const newFilterData = data.filter((table) => {
+            table.study_names.name
+              .toLowerCase()
+              .includes(discipline.toLowerCase());
+            console.log(table);
+          });
+
+          setData(newFilterData);
+        }
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -43,7 +53,7 @@ function Form({ show, setShow, data, setData }) {
 
   const disciplines = [t("IT"), t("law"), t("aut")];
 
-  const cities = [t("kr"), t("wa")];
+  const run_forms = [t("stacjonarne"), t("niestacjonarne")];
 
   const degrees = [t("ba"), t("ma")];
 
@@ -52,12 +62,10 @@ function Form({ show, setShow, data, setData }) {
   const profiles = ["praktyczny", "ogólnoakademicki"];
 
   const search = (event, arr) => {
-    console.log(arr);
     arr.map((item) => {
       const newFilterData = arr.filter((item) =>
         item.toLowerCase().includes(discipline.toLowerCase())
       );
-      console.log(item);
       setfilterData(newFilterData);
       return arr;
     });
@@ -83,10 +91,10 @@ function Form({ show, setShow, data, setData }) {
           <div className="card flex justify-content-center">
             <span className="p-float-label">
               <AutoComplete
-                value={city}
+                value={run_form}
                 suggestions={filterData}
-                completeMethod={(e) => search(e, cities)}
-                onChange={(e) => setCity(e.value)}
+                completeMethod={(e) => search(e, run_forms)}
+                onChange={(e) => setRun_form(e.value)}
                 dropdown
                 placeholder={t("f2")}
               />
@@ -146,9 +154,7 @@ function Form({ show, setShow, data, setData }) {
                 dropdown
                 placeholder={t("prof")}
               />
-              <label htmlFor="dd-city" className="text-lg">
-                {t("prof")}
-              </label>
+              <label htmlFor="dd-city">{t("prof")}</label>
             </span>
           </div>
         </div>

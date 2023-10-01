@@ -11,7 +11,7 @@ import { useEffect } from "react";
 import React from "react";
 
 function App() {
-  const [data, setData] = useState("");
+  const [data, setData] = useState([]);
   const { t, i18n } = useTranslation();
   const switchToPolish = () => i18n.changeLanguage("pl");
   const switchToEnglish = () => i18n.changeLanguage("en");
