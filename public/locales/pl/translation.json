@@ -2,10 +2,8 @@
     "title": "Co ja ze sobą zrobię?",
     "question": "Jaką uczelnię wybierzesz?",
     "f1": "Wybierz dyscyplinę",
-    "f2": "Wybierz miasto",
+    "f2": "Wybierz tryb nauczania",
     "f3": "Wybierz stopień",
-    "kr": "Kraków",
-    "wa": "Warszawa",
     "IT": "Informatyka",
     "law": "Prawo",
     "aut": "Automatyka",
@@ -19,9 +17,10 @@
     "search": "Wyszukaj",
     "prof": "Wybierz profil",
     "lang": "Język: ",
-    "stacjonarne": "stacjonarne",
-    "niestacjonarne": "niestacjonarne",
+    "stacjonarne": "Stacjonarne",
+    "niestacjonarne": "Niestacjonarne",
     "pierwszego stopnia": "Licencjat",
-    "drugiego stopnia": "Magister"
-
+    "drugiego stopnia": "Magister",
+    "praktyczny": "Praktyczny",
+    "ogólnoakademicki": "Ogólnoakademicki"
 }

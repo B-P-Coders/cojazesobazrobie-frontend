@@ -2,10 +2,8 @@
     "title": "What should I do ?",
     "question": "Which university are you going to choose?",
     "f1": "Choose a discipline",
-    "f2": "Choose a city",
+    "f2": "Choose if stationary/online",
     "f3": "Choose a degree",
-    "kr": "Cracow",
-    "wa": "Warsaw",
     "IT": "Computer Science",
     "law": "Law",
     "aut": "Automatics",
@@ -19,9 +17,10 @@
     "search": "Search",
     "prof": "Choose a profile",
     "lang": "Language: ",
-    "stacjonarne": "stationary",
-    "niestacjonarne": "online",
+    "stacjonarne": "Stationary",
+    "niestacjonarne": "Online",
     "pierwszego stopnia": "Bachelor's",
-    "drugiego stopnia": "Master's"
-    
+    "drugiego stopnia": "Master's",
+    "praktyczny": "Practical",
+    "ogólnoakademicki": "General academic"
 }
